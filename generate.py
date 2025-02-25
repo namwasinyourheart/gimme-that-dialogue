@@ -1,4 +1,4 @@
-%%writefile generate.py
+# %%writefile generate.py
 from omegaconf import OmegaConf
 from typing import List, Tuple
 import importlib
