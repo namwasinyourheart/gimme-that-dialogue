@@ -421,9 +421,10 @@ def main():
         logger.info("PREPARING DATASET...")
 
         dataset, processed_data_path = prepare_data(exp_args, data_args, model_args)
-    
-    # Show dataset examples
-    show_dataset_examples(dataset)
+
+    if data_args.dataset.do_show:
+        # Show dataset examples
+        show_dataset_examples(dataset)
 
 
 if __name__ == '__main__':
