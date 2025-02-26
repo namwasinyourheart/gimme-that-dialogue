@@ -18,7 +18,7 @@ prepare_data:
     output_col: "summary"
     context_col: 
     do_split: true
-    subset_ratio: 0.01
+    subset_ratio: 1
     val_ratio: 0.25
     test_ratio: 0.2
     columns_to_retain: ['id', 'summary', 'text']
@@ -119,7 +119,7 @@ generate:
 eval:
   batch_size: 36
   break_step: -1
-  do_extract_prediction: True
+  do_extract_prediction: False
   prediction_file: 'test_predictions_0shot.txt'
   result_file: 'test_result_0shot.txt'
 

@@ -18,7 +18,7 @@ prepare_data:
     output_col: "summary"
     context_col: 
     do_split: true
-    subset_ratio: 0.01
+    subset_ratio: 1
     val_ratio: 0.25
     test_ratio: 0.2
     columns_to_retain: ['id', 'summary', 'text']
