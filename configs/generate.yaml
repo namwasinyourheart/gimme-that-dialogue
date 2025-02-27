@@ -1,0 +1,63 @@
+model:
+    pretrained_model_name_or_path: meta-llama/Llama-3.2-3B-Instruct
+    pretrained_tokenizer_name_or_path: meta-llama/Llama-3.2-3B-Instruct
+    load_in_4bit: false
+    load_in_8bit: false
+    bnb_4bit_compute_dtype: float16
+    bnb_4bit_quant_type: "nf4"
+    bnb_4bit_use_double_quant: true
+    bnb_4bit_quant_storage: "uint8"
+    torch_dtype: float16
+    attn_implementation: null
+    device_map: null
+    low_cpu_mem_usage: null
+    lora_adapter: # path to lora adapter
+
+prompt:
+    use_only_input_text: false
+    use_examples: false
+    use_context: false
+    intro_text: #"You are an expert in summarizing dialogue."
+    instruction_key: null #"### Instruction:"
+    instruction_text: "Summarize the following dialogue."
+    examples_key: "### Examples:"
+    examples_template:
+    examples_list: 
+    input_key: "### Dialogue:"
+    input_text: |
+        """Hannah: Hey, do you have Betty's number?
+        Amanda: Lemme check
+        Hannah: <file_gif>
+        Amanda: Sorry, can't find it.
+        Amanda: Ask Larry
+        Amanda: He called her last time we were at the park together
+        Hannah: I don't know him well
+        Hannah: <file_gif>
+        Amanda: Don't be shy, he's very nice
+        Hannah: If you say so..
+        Hannah: I'd rather you texted him
+        Amanda: Just text him 🙂
+        Hannah: Urgh.. Alright
+        Hannah: Bye
+        Amanda: Bye bye"""
+    context_key:
+    context_text: 
+    response_key: "### Summary:"
+    end_key: null
+
+generate:
+  use_vllm: False
+  do_postprocess: false
+  return_full: false
+  skip_special_tokens: true
+  max_new_tokens: 512
+  temperature: 0
+  do_sample: null
+  top_p: null
+  # num_beams: 4,    
+  # num_return_sequences: 4,
+  # return_dict_in_generate: True,
+  # output_scores: True,
+  
+device:
+  use_cpu: false
